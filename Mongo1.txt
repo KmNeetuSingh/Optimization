@@ -1,0 +1,54 @@
+
+Database name: database
+Collection name: myCollection
+
+1. Find the employee with employee_id 25.
+ANS: db.myCollection.find({ employee_id: 25 })
+
+2. Find all employees in Department3.
+ANS: db.myCollection.find({ department: "Department3" })
+
+3. List all employees with a salary greater than 55000.
+ANS: db.myCollection.find({ salary: { $gt: 55000 } })
+
+4. Count the number of employees in Department1.
+ANS: db.myCollection.countDocuments({ department: "Department1" })
+
+5. Increase the salary of the employee with employee_id 50 by 5000.
+ANS: db.myCollection.updateOne(
+      { employee_id: 50 },
+      { $inc: { salary: 5000 } }
+    )
+
+6. Find all employees who joined after 2022-01-15.
+ANS: db.myCollection.find({ join_date: { $gt: new Date("2022-01-15") } })
+
+7. Delete the employee with employee_id 10.
+ANS: db.myCollection.deleteOne({ employee_id: 10 })
+
+8. Find all employees whose last name starts with 'L'.
+ANS: db.myCollection.find({ last_name: /^L/ })
+
+9. Find all employees with no manager (manager_id is None).
+ANS: db.myCollection.find({ manager_id: null })
+
+10. Find all employees who are older than 30.
+ANS: db.myCollection.find({ age: { $gt: 30 } })
+
+11. Update the department of the employee with employee_id 75 to Department2.
+ANS: db.myCollection.updateOne(
+      { employee_id: 75 },
+      { $set: { department: "Department2" } }
+    )
+
+12. Find all employees whose email contains 'firstname5'.
+ANS: db.myCollection.find({ email: /firstname5/ })
+
+13. Find all employees who joined on or before 2022-01-10.
+ANS: db.myCollection.find({ join_date: { $lte: new Date("2022-01-10") } })
+
+14. Retrieve all employees sorted by salary in descending order.
+ANS: db.myCollection.find().sort({ salary: -1 })
+
+15. Count the number of employees who are in Department4 and have a salary above 52000.
+ANS: db.myCollection.countDocuments({ department: "Department4", salary: { $gt: 52000 } })
