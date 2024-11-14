@@ -41,3 +41,4 @@ ANS: db.students.deleteMany({ age: { $gte: specificValue } })
 
 12. How do you find documents in the "students" collection where the course field is "Data Science"?
 ANS: db.students.find({ course: "Data Science" })
+
