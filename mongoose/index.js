@@ -1,21 +1,33 @@
-// index.js
-const express = require('express');
-const connectDB = require('./config/mongoose'); 
-const app = express();
-const port = 3000;
+const express = require("express");
+const mongoose = require("mongoose");
+const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 
-// Connect to MongoDB
-connectDB();
+const app = express();
+const PORT = 3000;
 
 // Middleware
 app.use(express.json());
 
-// Routes
-app.get('/', (req, res) => {
-    res.send("Hello, world!");
+// MongoDB connection
+mongoose
+  .connect("mongodb://127.0.0.1:27017/users_products", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.log("Error connecting to MongoDB: ", err));
+
+// Root route
+app.get("/", (req, res) => {
+  res.send("Server is running on the root path!");
 });
 
-// Start server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+// Routes
+app.use("/users", userRoutes);
+app.use("/products", productRoutes);
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port: ${PORT}`);
 });
