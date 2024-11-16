@@ -8,6 +8,5 @@ app.get("/", (req, res) => {
 })
 app.listen(Port, async() => {
     await mongoDB(),
-    
     console.log("Server is running")
 })

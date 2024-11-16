@@ -11,7 +11,7 @@ app.use(express.json());
 
 // MongoDB connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/users_products", {
+  .connect("mongodb+srv://neetusingh99590:uE2D4dtqwmc3pArj@cluster0.alpks.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 ", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
