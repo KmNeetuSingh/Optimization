@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const busSchema = new mongoose.Schema({
   bus_number: { type: String, required: true, unique: true },
   capacity: { type: Number, required: true },
