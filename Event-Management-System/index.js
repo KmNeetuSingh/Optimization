@@ -1,14 +1,22 @@
 const express = require('express');
-const app = express();
+const mongoose = require('mongoose');
 require('dotenv').config();
 
-const mongoDB = require('./config/db');
+const mongoDB = require('./config/db');  
+const router = require('./routes/routes'); 
+
+const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+
+// Health-check-route
 app.get("/health", (req, res) => {
     res.send("Server is Running!");
 });
+app.use('/api', router);  
 
+// Start the server
 app.listen(PORT, async () => {
     try {
         await mongoDB();
