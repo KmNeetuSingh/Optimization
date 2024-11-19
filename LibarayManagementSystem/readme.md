@@ -132,5 +132,3 @@ LibraryManagementSystem/
 ## 🏅 Acknowledgments
 
 Special thanks to the **Node.js** and **MongoDB** communities for their amazing documentation and support.
-
--
